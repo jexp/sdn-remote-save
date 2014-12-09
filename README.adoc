@@ -1,0 +1,20 @@
+== Spring Data Neo4j Remoting Performance Tests
+
+
+Some tests for SDN remoting, running 1000 business operations each which create 9 entities and 8 relationships.
+
+The speed difference is quite impressive:
+
+|===
+
+| Mode | Operations | Time (ms) | Time/Op (ms)
+| SDN remote (old):  | 1000 | 282385 | 282
+| SDN embedded: | 1000 | 11879 | 11
+| SDN remote extension: | 1000 | 11879 | 16
+| JDBC Cypher: | 1000 | 5235 | 5
+| SDN  Cypher: | 1000 | 7739 | 7
+| SDN remote (new):  | 1000 | 38151 | 38
+
+|===
+
+Run each of the tests individually, the remote tests start their own embedded Neo4j test server.
